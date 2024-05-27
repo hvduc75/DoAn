@@ -1,6 +1,7 @@
 package IT4.DoAn.Service;
 
 import IT4.DoAn.DAO.StatisticalDAO;
+import IT4.DoAn.Model.Order;
 import IT4.DoAn.Model.Shipper;
 import java.sql.Timestamp;
 import java.util.List;
@@ -14,6 +15,14 @@ public class StatisticalService {
     
     public Vector<Vector<String>> getAllStatisticalShipper(Timestamp before, Timestamp after) {
         return statisticalDao.getAllStatisticalShipper(before, after);
+    }
+    
+    public List<Order> getAllOrderDeliveredByMonth(Timestamp before, Timestamp after) {
+        return statisticalDao.getAllOrderDeliveredByMonth(before, after);
+    }
+    
+    public List<Order> getAllOrderDeliveringByMonth(Timestamp before, Timestamp after) {
+        return statisticalDao.getAllOrderDeliveringByMonth(before, after);
     }
     
     public int getShipperNumber() {

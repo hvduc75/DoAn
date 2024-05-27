@@ -157,8 +157,7 @@ public class Login extends javax.swing.JFrame {
                 sendMain(user);
             }
         } catch (SQLException e) {
-            System.out.println("check error: "+ e);
-            //showMessage(Message.MessageType.ERROR, "Error Register");
+            showMessage(Message.MessageType.ERROR, "Error Register");
         }
     }
     

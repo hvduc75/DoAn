@@ -41,7 +41,7 @@ public class ServiceMail {
                 ms.setMessage("Invalid email");
             } else {
                 System.out.println("Check error send email: " + e);
-                //ms.setMessage("Error");
+                ms.setMessage("Error");
             }
         }
         return ms;
