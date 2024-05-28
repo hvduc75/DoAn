@@ -290,6 +290,7 @@ public class AddOrder extends javax.swing.JFrame {
         }
         order.setUser_name(UserNameTF.getText());
         order.setUser_phone(PhoneTF.getText());
+        order.setDescription(Description.getText());
         LocalDateTime currentTime = LocalDateTime.now();
         Timestamp currentTimestamp = Timestamp.valueOf(currentTime);
         order.setDate_Create(currentTimestamp);

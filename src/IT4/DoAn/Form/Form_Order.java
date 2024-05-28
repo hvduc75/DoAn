@@ -75,7 +75,7 @@ public class Form_Order extends javax.swing.JPanel {
                 y = String.valueOf(order.getDelivery_Expected());
             }
             defaultTableModel.addRow(new Object[]{order.getId(), order.getName(),
-                order.getReceive_Location(), order.getDelivery_Location(), x, order.getFeedback(),
+                order.getReceive_Location(), order.getDelivery_Location(), x, order.getDescription(),
                 distance, price, order.getUser_name(), order.getUser_phone(), order.getDate_Create(), y});
         }
     }

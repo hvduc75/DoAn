@@ -1,6 +1,5 @@
 package IT4.DoAn.Form;
 
-import IT4.DoAn.Main.Main;
 import IT4.DoAn.Model.Order;
 import IT4.DoAn.Service.StatisticalService;
 import java.sql.Timestamp;
@@ -65,7 +64,7 @@ public class Form_Statistical extends javax.swing.JPanel {
         header.add("Total Price");
         defaultTableModel.setDataVector(data, header);
         RevenueTable.setModel(defaultTableModel);
-        RevenueLabel.setText("           Doanh Thu Của Tất Cả Các Shipper Trong Tháng " + MonthDelivering.getValue());
+        RevenueLabel.setText("           Doanh Thu Của Tất Cả Các Shipper Trong Tháng " + MonthRevenue.getValue());
     }
 
     private void ShowTableDelivering() {
@@ -440,7 +439,7 @@ public class Form_Statistical extends javax.swing.JPanel {
                 .addGap(0, 0, 0))
         );
 
-        DemoTabbedPane.addTab("Danh Sach Đơn Hàng Đang Giao", DeliveringOrder);
+        DemoTabbedPane.addTab("Danh Sách Đơn Hàng Đang Giao", DeliveringOrder);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

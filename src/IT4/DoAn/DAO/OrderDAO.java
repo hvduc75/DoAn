@@ -25,7 +25,7 @@ public class OrderDAO {
                 order.setDelivery_Location(rs.getString("ORDER_DELIVERY_LOCATION"));
                 order.setReceive_Location(rs.getString("ORDER_RECEIVE_LOCATION"));
                 order.setStatus(rs.getInt("ORDER_STATUS"));
-                order.setFeedback(rs.getString("ORDER_DESCRIPTION"));
+                order.setDescription(rs.getString("ORDER_DESCRIPTION"));
                 order.setDistance(rs.getDouble("ORDER_DISTANCE"));
                 order.setPrice(rs.getDouble("ORDER_PRICE"));
                 order.setContainer_ID(rs.getInt("CON_ID"));

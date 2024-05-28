@@ -127,14 +127,14 @@ public class ShipperDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setBoolean(1, true);
             preparedStatement.setInt(2, id);
-          
+
             int rs = preparedStatement.executeUpdate();
             System.out.println(rs);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-    
+
     public void UpdateStatus(Boolean staus, int id) {
         Connection connection = connectionToSQLServer.getJDBCConnectionShipper();
 
@@ -144,14 +144,14 @@ public class ShipperDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setBoolean(1, staus);
             preparedStatement.setInt(2, id);
-          
+
             int rs = preparedStatement.executeUpdate();
             System.out.println(rs);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-    
+
     public void UpdateStar(float Star, int id) {
         Connection connection = connectionToSQLServer.getJDBCConnectionShipper();
 
@@ -161,7 +161,7 @@ public class ShipperDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setFloat(1, Star);
             preparedStatement.setInt(2, id);
-          
+
             int rs = preparedStatement.executeUpdate();
             System.out.println(rs);
         } catch (SQLException ex) {
@@ -174,16 +174,16 @@ public class ShipperDAO {
 
         String sql = "UPDATE ORDERS\n"
                 + "SET CON_ID = NULL, ORDER_STATUS = 1, ORDER_DELIVERY_EXPECTED = NULL\n"
-                + "WHERE CON_ID = (SELECT O.CON_ID\n"
+                + "WHERE CON_ID IN (SELECT O.CON_ID\n"
                 + "FROM (CONTAINER AS C INNER JOIN SHIPPER AS S\n"
                 + "ON C.SHIPPER_ID = S.SHIPPER_ID) INNER JOIN ORDERS AS O\n"
                 + "ON O.CON_ID = C.CON_ID\n"
-                + "WHERE O.ORDER_STATUS = 1 AND S.SHIPPER_ID = ?);";
+                + "WHERE O.ORDER_STATUS = 2 AND S.SHIPPER_ID = ?) AND ORDER_STATUS = 2;";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
-          
+
             int rs = preparedStatement.executeUpdate();
             System.out.println(rs);
         } catch (SQLException ex) {
